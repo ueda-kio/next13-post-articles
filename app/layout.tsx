@@ -1,4 +1,3 @@
-import './globals.css';
 import Provider from './Provider';
 import Header from './Header';
 import Main from './Main';
