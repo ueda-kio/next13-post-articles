@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import './globals.css';
 
 export const metadata = {
@@ -11,13 +12,20 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
-			{/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-			{/* <head /> */}
-			<body>{children}</body>
+		<html lang="ja">
+			<head />
+			<body>
+				<header>
+					<h1>
+						<Link href="/">ブログ</Link>
+					</h1>
+					<Link href="/articles/new">記事を書く</Link>
+				</header>
+				{children}
+				<footer>
+					<small>© 2023 ueda-kio</small>
+				</footer>
+			</body>
 		</html>
 	);
 }
