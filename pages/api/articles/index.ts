@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	} else if (req.method === 'POST') {
 		await delay(1000);
 		const { title, content } = req.body;
-		const articles = JSON.parse(fs.readFileSync('./json/articles.json', 'utf8'));
+		const articles = JSON.parse(fs.readFileSync('/articles.json', 'utf8'));
 		const id = articles.articles.length + 1;
 		const date = new Date();
 		const slug = randomUUID();
