@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text } from '../common/components';
+import { Card, CardHeader, CardBody, CardFooter, Heading, Text } from '@/app/common/components';
 import NextLink from 'next/link';
 import { Article } from './types';
 

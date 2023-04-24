@@ -1,6 +1,6 @@
-import { Heading } from './common/components';
-import ArticleList from './components/ArticleList';
-import type { Article } from './components/types';
+import { Heading } from '@/app/common/components';
+import ArticleList from '@/components/ArticleList';
+import type { Article } from '@/components/types';
 
 async function getArticles() {
 	const res = await fetch('http://localhost:3000/api/articles', { cache: 'no-store' });
