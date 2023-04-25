@@ -3,10 +3,6 @@ import { Article, Comment } from '@/components/types';
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-	title: '記事ページ',
-};
-
 const getArticle = async (slug: string) => {
 	const res = await fetch(`http://localhost:3000/api/articles/${slug}`, {
 		next: { revalidate: 60 },
@@ -24,6 +20,11 @@ const getArticle = async (slug: string) => {
 	const data = await res.json();
 	return data as Article;
 };
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+	const product = await getArticle(params.slug);
+	return { title: product.title };
+}
 
 const getComments = async (slug: string) => {
 	const res = await fetch(`http://localhost:3000/api/articles/${slug}/comments`, {
