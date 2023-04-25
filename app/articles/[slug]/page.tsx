@@ -1,6 +1,11 @@
 import { notFound } from 'next/navigation';
 import { Article, Comment } from '@/components/types';
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: '記事ページ',
+};
 
 const getArticle = async (slug: string) => {
 	const res = await fetch(`http://localhost:3000/api/articles/${slug}`, {
