@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	} else if (req.method === 'POST') {
 		await delay(1000);
 		const { title, content } = req.body;
-		const articles = JSON.parse(fs.readFileSync('/articles.json', 'utf8'));
+		const articles = JSON.parse(fs.readFileSync('./articles.json', 'utf8'));
 		const id = articles.articles.length + 1;
 		const date = new Date();
 		const slug = randomUUID();
@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			updatedAt: date,
 		};
 		articles.articles.push(newArticle);
-		fs.writeFileSync('articles.json', JSON.stringify(articles));
+		fs.writeFileSync('./articles.json', JSON.stringify(articles));
 		res.status(201).json(newArticle);
 	} else {
 		res.status(405).end();
